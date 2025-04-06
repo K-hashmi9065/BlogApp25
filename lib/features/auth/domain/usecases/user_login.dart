@@ -13,14 +13,14 @@ class UserLogin implements Usecase<User, UserLoginParams> {
   Future<Either<Failure, User>> call(UserLoginParams params) async {
     return await repository.loginWithEmailPassword(
       email: params.email,
-      name: params.name,
-    );
+      password: params.password,
+    );  
   }
 }
 
 class UserLoginParams {
   final String email;
-  final String name;
+  final String password;
 
-  UserLoginParams({required this.email, required this.name});
+  UserLoginParams({required this.email, required this.password});
 }

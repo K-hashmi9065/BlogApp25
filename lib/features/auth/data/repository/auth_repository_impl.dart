@@ -31,14 +31,14 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Either<Failure, User>> loginWithEmailPassword({
     required String email,
-    required String name,
+    required String password,
   }) async {
     try {
       final user = await remoteDataSource.signInWithEmailAndPassword(
         email: email,
-        password: name,
+        password: password,
       );
-        return right(user);
+      return right(user);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
