@@ -1,4 +1,4 @@
-part of 'auth_bloc.dart';
+  part of 'auth_bloc.dart';
 
 abstract class AuthState {}
 
@@ -9,9 +9,9 @@ class AuthLoading extends AuthState {
 }
 
 class AuthSuccess extends AuthState {
-  final String userId;
+  final User user;
 
-  AuthSuccess(this.userId);
+  AuthSuccess(this.user);
 }
 
 class AuthFailure extends AuthState {
